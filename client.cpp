@@ -56,7 +56,6 @@ int getPrivateKey(string username){
 string decode(string str, int key){
     int len = str.length();
     char text[MAXLEN];
-    strcpy(text, str.c_str());
     for(int i = 0;i < len;i++)
         text[i] = dict[(dict.find(text[i]) + key - i + CONST_MOD) % CONST_MOD];
     return string(text);
@@ -86,7 +85,6 @@ void parseUsers(string all){
 void parseAndPrint(string msg, int key){
     cout << endl << "#############################################" << endl;
     vector<string> results;
-    boost::split(results, msg, [](char c){return c == '\n';});
     cout << "From: " << results[0] << endl;
     cout << "---------------" << endl;
     string contain = string();
