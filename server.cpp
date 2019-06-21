@@ -126,7 +126,6 @@ void recall(string username, int sock){
 
 int regis(string username, string passwd, int fd){
     User usr;
-    strcpy(usr.username, username.c_str());
     if(find(userlist.begin(), userlist.end(), usr) != userlist.end()){
         send(fd, "EXIST", 6, 0);
         return -1;
